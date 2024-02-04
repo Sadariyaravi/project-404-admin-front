@@ -1,0 +1,374 @@
+<div
+  class="flex justify-around ps-12 pt-24 bg-no-repeat bg-50% bg-center gap-80 h-screen"
+  style="background-image: url('../../../assets/LoginImage.jpg')"
+>
+  <div
+    class="bg-transparent border-2 border-black w-full lg:w-1/4 shadow-[15px_15px_0px_0px_#000] p-12 h-fit"
+  >
+    <form
+      class="flex flex-col gap-5"
+      *ngIf="SignupFormActive"
+      [formGroup]="SignupForm"
+    >
+      <div class="flex flex-col gap-2 w-full">
+        <div class="p-2 w-full">
+          <div class="w-full flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <input
+                type="text"
+                id="UserName"
+                class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+                placeholder="Please Enter Your Name"
+                formControlName="UserName"
+              />
+            </div>
+            <div *ngIf="UserName?.invalid && UserName?.touched">
+              <div *ngIf="UserName?.errors?.['required']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  Name is required
+                </p>
+              </div>
+              <div *ngIf="UserName?.errors?.['maxlength']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Max length for this Field is 8
+                </p>
+              </div>
+              <div *ngIf="UserName?.errors?.['minlength']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Min length for this Field is 3
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="p-2">
+          <div class="flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <input
+                type="text"
+                id="PhoneNumber"
+                placeholder="Please Enter Your PhoneNumber"
+                formControlName="UserPhoneNumber"
+                class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+              />
+            </div>
+            <div *ngIf="UserPhoneNumber?.invalid && UserPhoneNumber?.touched">
+              <div
+                *ngIf="UserPhoneNumber?.errors?.['required']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  PhoneNumber is required
+                </p>
+              </div>
+              <div
+                *ngIf="UserPhoneNumber?.errors?.['pattern']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Invalid PhoneNumber
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="p-2">
+          <div class="flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <input
+                type="text"
+                id="Usermail"
+                placeholder="Please Enter Your EmailId"
+                formControlName="UserEmailId"
+                class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+              />
+            </div>
+
+            <div *ngIf="UserEmailId?.invalid && UserEmailId?.touched">
+              <div *ngIf="UserEmailId?.errors?.['required']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  Email Id is required
+                </p>
+              </div>
+              <div *ngIf="UserEmailId?.errors?.['email']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Invalid Email
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="p-2">
+          <div class="flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <input
+                type="password"
+                id="UserPass"
+                placeholder="Please Enter Your Password"
+                formControlName="Password"
+                class="form-control p-4 border-black border-2 bg-primary6 h-12 w-full placeholder-opacity-25"
+              />
+            </div>
+
+            <div *ngIf="Password?.invalid && Password?.touched">
+              <div *ngIf="Password?.errors?.['required']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  Password is required
+                </p>
+              </div>
+              <div *ngIf="Password?.errors?.['pattern']" class="flex gap-2">
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Password length must be 8 and should contain 1-uppercase &
+                  1-number & 1-special character
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="p-2">
+          <div class="flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <input
+                type="password"
+                id="ConfirmPassword"
+                placeholder="Please Confirm Your Password"
+                class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+                formControlName="ConfirmPassword"
+              />
+            </div>
+
+            <div *ngIf="ConfirmPassword?.invalid && ConfirmPassword?.touched">
+              <div
+                *ngIf="ConfirmPassword?.errors?.['required']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  Please Confirm Password
+                </p>
+              </div>
+              <div
+                *ngIf="ConfirmPassword?.errors?.['pattern']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Password length must be 8 and should contain 1-uppercase &
+                  1-number & 1-special character
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="bg-black p-3">
+        <p class="text-white text-xl font-semibold">Password Structer</p>
+         <li class="text-white">Max length 9</li> 
+         <li class="text-white">min length 7</li> 
+         <li class="text-white">must contain 1 uppercase,1 number,1 speacial char.</li>
+      </div> -->
+      <div class="flex justify-center">
+        <button
+          class="bg-transparent duration-200 ease-in-out transition-all border-2 border-black hover:border-black hover:bg-black hover:text-white font-bold px-9 py-2 hover:x"
+        >
+          SignUp
+        </button>
+        <div class="card flex justify-content-center"></div>
+      </div>
+
+      <div class="flex justify-center">
+        <p class="font-thin" >Already registered ?</p>
+        &nbsp;
+        <a
+          (click)="ChangeForm()"
+          class="font-extrabold cursor-pointer underline decoration-dashed decoration-2 underline-offset-8"
+          >Login</a
+        >
+      </div>
+    </form>
+
+    <!-- Login Form -->
+
+    <form
+      class="flex flex-col gap-5"
+      *ngIf="!SignupFormActive"
+      [formGroup]="LoginForm"
+    >
+      <div class="flex flex-col gap-2 w-full">
+        <div class="p-2 w-full">
+          <div class="flex flex-col gap-2">
+            <div class="flex">
+              <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <input
+                type="text"
+                id="LoginNumber"
+                class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+                placeholder="Please Enter Your PhoneNumber"
+                formControlName="LoginUserPhoneNumber"
+              />
+            </div>
+
+            <div
+              *ngIf="
+                LoginUserPhoneNumber?.invalid && LoginUserPhoneNumber?.touched
+              "
+            >
+              <div
+                *ngIf="LoginUserPhoneNumber?.errors?.['required']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-600 font-semibold">
+                  PhoneNumber is required
+                </p>
+              </div>
+              <div
+                *ngIf="LoginUserPhoneNumber?.errors?.['pattern']"
+                class="flex gap-2"
+              >
+                <i
+                  class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+                ></i>
+                <p  class="text-sm text-red-500 font-semibold">
+                  Invalid PhoneNumber
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <div class="p-2 flex flex-col gap-2">
+          <div class="flex">
+            <div class="p-2 border-s-2 border-t-2 border-b-2 border-black">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <input
+              type="password"
+              id="LoginPassword"
+              placeholder="Please Enter Password"
+              formControlName="LoginPassword"
+              class="form-control p-4 border-black border-2 rounded-none bg-primary6 h-12 w-full placeholder-opacity-25"
+            />
+          </div>
+          <div *ngIf="LoginPassword?.invalid && LoginPassword?.touched">
+            <div *ngIf="LoginPassword?.errors?.['required']" class="flex gap-2">
+              <i
+                class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+              ></i>
+              <p  class="text-sm text-red-600 font-semibold">
+                Password is required
+              </p>
+            </div>
+            <div *ngIf="LoginPassword?.errors?.['pattern']" class="flex gap-2">
+              <i
+                class="fa-solid fa-circle-exclamation fa-bounce text-red-600"
+              ></i>
+              <p  class="text-sm text-red-500 font-semibold">
+                Password length must be 8 and should contain 1-uppercase &
+                1-number & 1-special character
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <button
+          class="bg-transparent duration-200 ease-in-out transition-all border-2 border-black hover:border-black hover:bg-black hover:text-white font-bold px-9 py-2"
+        >
+          Login
+        </button>
+      </div>
+      <div class="flex justify-center">
+        <p class="font-thin" >Not registered yet ?</p>
+        &nbsp;
+        <a
+          ="@@Signuplink"
+          (click)="ChangeForm()"
+          class="font-extrabold cursor-pointer underline decoration-dashed decoration-2 underline-offset-8"
+          >SignUp</a
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="w-1/3 flex flex-col gap-5">
+    <h1
+      class="text-4xl text-blue-900 font-extrabold underline decoration-yellow-600 decoration-double decoration-4 underline-offset-8"
+    >
+      Project 404
+    </h1>
+    <p class="text-xl text-justify font-semibold leading-loose tracking-wide">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
+      numquam nam nisi facilis doloremque illum earum molestiae repellendus sed
+      quam similique in, adipisci culpa corrupti nobis beatae eos voluptas,
+      aperiam sunt quaerat velit porro. Nostrum velit hic recusandae nihil, esse
+      repellendus asperiores libero obcaecati
+    </p>
+  </div>
+</div>

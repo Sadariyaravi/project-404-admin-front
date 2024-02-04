@@ -1,0 +1,91 @@
+<nav>
+  <!------------------ Navbar 1 ----------------------------------->
+
+  <div
+    class="bg-primary1 text-white shadow-2xl shadow-blue-500 py-3"
+    style="height: 70px; width: 100%"
+  >
+    <div class="container mx-auto flex">
+      <div class="flex w-full justify-between">
+        <div class="flex gap-3">
+          <!-- <a href="#"
+            ><img
+              src="../../../assets/hostel.png"
+              alt="Logo"
+              style="height: 50px"
+          /></a> -->
+          <a href="#" class="py-2 text-primary-6 text-2xl font-bold"
+            >Project 404</a
+          >
+        </div>
+        <div class="flex gap-3">
+          <!-- <p-sidebar
+            [(visible)]="sidebarVisible"
+            position="right"
+            class="p-0 h-screen"
+            [showCloseIcon]="false"
+          >
+            <ng-template pTemplate="Header">Header Content</ng-template>
+            <ng-template pTemplate="content">Body Content</ng-template>
+            <ng-template pTemplate="footer">Footer Content</ng-template>
+            <div class="h-full">
+              <div>
+                <h1>Hello {{ userName | uppercase }}</h1>
+              </div>
+              <div class="flex flex-col justify-between h-full">
+                <div class="h-full">
+                  <p-panelMenu
+                    [model]="items"
+                    [style]="{ width: '300px' }"
+                    [multiple]="true"
+                  >
+                  </p-panelMenu>
+                </div>
+                <div class="w-full">
+                  <p-button styleClass="p-button-danger p-button-text"
+                    >Logout</p-button
+                  >
+                </div>
+              </div>
+            </div>
+          </p-sidebar> -->
+          <div class="card flex justify-content-center">
+            <!-- <p-sidebar [(visible)]="sidebarVisible">
+              <ng-template pTemplate="content">Body Content</ng-template>
+              <ng-template pTemplate="footer">Footer Content</ng-template>
+            </p-sidebar> -->
+          </div>
+
+          <div class="flex gap-3" *ngIf="loginStatus">
+            <div class="flex flex-col justify-center">
+              <h1 class="pt-2 font-semibold">{{ userName }}</h1>
+            </div>
+            <!-- <p-avatar
+              icon="fa-solid fa-user"
+              (click)="sidebarVisible = true"
+              styleClass="mr-2 bg-black hover:bg-white rounded-none py-1 hover:text-black hover:shadow-[5px_5px_0px_0px_#000]"
+              size="large"
+              shape="square"
+            ></p-avatar> -->
+          </div>
+          <div class="flex flex-col justify-center mb-2" *ngIf="loginStatus">
+            <button
+              class="bg-black h-12 w-12 p-2 text-white hover:shadow-[5px_5px_0px_0px_#000] hover:bg-white hover:text-black"
+              (click)="Logout()"
+            >
+              <i class="fa-solid fa-arrow-right-from-bracket fa-xl font-extrabold"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- nav2 -->
+<div class="bg-[#7209b7] border-b-2 border-black" *ngIf="loginStatus">
+  <!-- <p-menubar
+    [model]="items"
+    styleClass="bg-[#7209b7] container mx-auto h-16 m-0 p-2 rounded-none text-white border-none"
+  >
+  </p-menubar> -->
+</div>
